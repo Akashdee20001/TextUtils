@@ -68,10 +68,10 @@ export default function TextForm(props) {
                 <div className="mb-3">
                     <textarea className="form-control" value={text} onChange={handleOnChange} id="myBox" rows="8" style={{ backgroundColor: getBackgroundColor(), color: props.mode === 'light' ? 'black' : 'white' }}></textarea>
                 </div>
-                <button className={`btn btn-${getBtnColor()} mx-1`} onClick={handleUpClick}>Convert to Uppercase</button>
-                <button className={`btn btn-${getBtnColor()} mx-1`} onClick={handleLoClick}>Convert to Lowercase</button>
-                <button className={`btn btn-${getBtnColor()} mx-1`} onClick={handleClearClick}>Clear</button>
-                <button className={`btn btn-${getBtnColor()} mx-1`} onClick={handleMergeClick}>Remove Whitespace</button>
+                <button disabled={text.length === 0} className={`btn btn-${getBtnColor()} mx-1 my-1`} onClick={handleUpClick}>Convert to Uppercase</button>
+                <button disabled={text.length === 0} className={`btn btn-${getBtnColor()} mx-1 my-1`} onClick={handleLoClick}>Convert to Lowercase</button>
+                <button disabled={text.length === 0} className={`btn btn-${getBtnColor()} mx-1 my-1`} onClick={handleClearClick}>Clear</button>
+                <button disabled={text.length === 0} className={`btn btn-${getBtnColor()} mx-1 my-1`} onClick={handleMergeClick}>Remove Whitespace</button>
             </div>
 
             <div className="container my-3" style={{ color: props.mode === 'light' ? 'black' : 'white' }}>
@@ -79,7 +79,7 @@ export default function TextForm(props) {
                 <p>{countWords(text)} words and {text.length} characters</p>
                 <p>{0.008 * countWords(text)} Minutes Read</p>
                 <h2>Preview</h2>
-                <p>{text.length > 0 ? text : "Enter something above in the textbox to see its preview"}</p>
+                <p>{text.length > 0 ? text : "Nothing to preview"}</p>
             </div>
         </>
 
